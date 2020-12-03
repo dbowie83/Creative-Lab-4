@@ -1,47 +1,25 @@
 <template>
 <div class="admin">
 
-<h1>The Admin Page!</h1>
-    <div class="heading">
-      <div class="circle">1</div>
-      <h2>Add an Item</h2>
-    </div>
-    <div class="add">
-      <div class="form">
-        <input v-model="title" placeholder="Title">
-        <p></p>
-        <input type="file" name="photo" @change="fileChanged">
-        <button @click="upload">Upload</button>
-      </div>
-      <div class="upload" v-if="addItem">
-        <h2>{{addItem.title}}</h2>
-        <img :src="addItem.path" />
-      </div>
-    </div>
+	<div>
+	<div class="text-center form">
+		<h1 class="text-2xl"> Make new post </h1>
+		<textarea v-model="title" class="border-2 border-gray-600 shadow-lg rounded-xl" id="" name="" rows="7" cols="50" placeholder="Write something amazing">
+		</textarea> <br>
+		<input class="" type="file" name="photo" @change="fileChanged">
+		<button type="button" @click="upload" class="btn btn-primary">Post</button>
+	</div>
 
-<div class="heading">
-      <div class="circle">2</div>
-      <h2>Edit/Delete an Item</h2>
-    </div>
-    <div class="edit">
-      <div class="form">
-        <input v-model="findTitle" placeholder="Search">
-        <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
-          </div>
-        </div>
-      </div>
-      <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
-        <p></p>
-        <img :src="findItem.path" />
-      </div>
-      <div class="actions" v-if="findItem">
-        <button @click="deleteItem(findItem)">Delete</button>
-        <button @click="editItem(findItem)">Edit</button>
+	</div>
 
-      </div>
+<div class="flex justify-center mt-4">
+<div id="fixedWidth" class="upload image text-center rounded-lg bg-blue-200 p-2 shadow-lg" v-if="addItem">
+      <img :src="addItem.path" />
+      <h2 class="p-3 text-center">{{addItem.title}}</h2>
     </div>
+</div>
+
+
 
 </div>
 </template>
@@ -113,6 +91,10 @@ button {
 .suggestion:hover {
   background-color: #5BDEFF;
   color: #fff;
+}
+
+#fixedWidth {
+	max-width: 320px;
 }
 </style>
 

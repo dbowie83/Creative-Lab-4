@@ -1,9 +1,9 @@
 <template>
 <div class="home">
   <section class="image-gallery">
-    <div class="image" v-for="item in items" :key="item.id">
-      <h2>{{item.title}}</h2>
+    <div class="image rounded-lg bg-blue-200 p-2 shadow-lg" v-for="item in items" :key="item.id">
       <img :src="item.path" />
+      <h2 class="p-3">{{item.title}}</h2>
     </div>
   </section>
 </div>
@@ -40,6 +40,7 @@ data() {
 <style scoped>
 .image h2 {
   font-style: italic;
+	text-align: center;
 }
 
 /* Masonry */
